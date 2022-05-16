@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 # encoding: utf-8
 
 # Source code preprocessor for KACTL build process. Compatible with both Python 2 and 3;

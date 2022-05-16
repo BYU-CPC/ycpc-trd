@@ -6,10 +6,10 @@ help:
 	@echo "This makefile builds KACTL (KTH Algorithm Competition Template Library)"
 	@echo ""
 	@echo "Available commands are:"
-	@echo "	make fast		- to build KACTL, quickly (only runs LaTeX once)"
-	@echo "	make kactl		- to build KACTL"
+	@echo "	make fast		- to build BYU TRD, quickly (only runs LaTeX once)"
+	@echo "	make byutrd		- to build BYU TRD"
 	@echo "	make clean		- to clean up the build process"
-	@echo "	make veryclean		- to clean up and remove kactl.pdf"
+	@echo "	make veryclean		- to clean up and remove byu-trd.pdf"
 	@echo "	make test		- to run all the stress tests in stress-tests/"
 	@echo "	make test-compiles	- to test compiling all headers"
 	@echo "	make help		- to show this information"
@@ -19,19 +19,19 @@ help:
 
 fast: | build
 	$(LATEXCMD) content/kactl.tex </dev/null
-	cp build/kactl.pdf kactl.pdf
+	cp build/kactl.pdf byu-trd.pdf
 
-kactl: test-session.pdf | build
+byutrd: test-session.pdf | build
 	$(LATEXCMD) content/kactl.tex && $(LATEXCMD) content/kactl.tex
-	cp build/kactl.pdf kactl.pdf
+	cp build/kactl.pdf byu-trd.pdf
 
 clean:
 	cd build && rm -f kactl.aux kactl.log kactl.tmp kactl.toc kactl.pdf kactl.ptc
 
 veryclean: clean
-	rm -f kactl.pdf test-session.pdf
+	rm -f byu-trd.pdf test-session.pdf
 
-.PHONY: help fast kactl clean veryclean
+.PHONY: help fast byutrd clean veryclean
 
 build:
 	mkdir -p build/
