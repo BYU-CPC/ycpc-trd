@@ -17,8 +17,9 @@ template<typename F>
 void perm(string& s, F lambda, int i = 0) {
     if (i==sz(s)) { lambda(s); return; }
     perm(s,lambda,i+1);
-    rep(j,i+1,sz(s)) if (s[j]!=s[j-1])
-        swap(s[i],s[j]),perm(s,lambda,i+1),swap(s[i],s[j]);
+    rep(j,i+1,sz(s)) if (s[j]!=s[i])
+        swap(s[i],s[j]),perm(s,lambda,i+1);
+    rotate(s.begin()+i, s.begin()+i+1, s.end());
 }
 
 template<typename F>
